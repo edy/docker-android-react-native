@@ -64,5 +64,9 @@ RUN set -ex \
 
 RUN npm install -g react-native-cli
 
-VOLUME [ "/app" ]
-WORKDIR [ "/app" ]
+$NAME = NAME
+
+RUN react-native init $NAME
+
+VOLUME [ "/$NAME" ]
+WORKDIR [ "/$NAME" ]
