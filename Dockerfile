@@ -1,4 +1,4 @@
-RUN if [ ! -z {$NAME} ] \
+RUN if [ -z {$NAME} ] \
         exit 1
 
 FROM openjdk:8-jdk
