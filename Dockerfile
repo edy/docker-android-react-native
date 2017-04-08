@@ -1,3 +1,6 @@
+RUN if [ -z {$NAME} ] \
+        exit 1
+
 FROM openjdk:8-jdk
 
 ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
@@ -64,5 +67,7 @@ RUN set -ex \
 
 RUN npm install -g react-native-cli
 
-VOLUME [ "/app" ]
-WORKDIR [ "/app" ]
+RUN react-native init {$NAME}
+
+VOLUME [ "/{$NAME}" ]
+WORKDIR [ "/{$NAME}" ]
